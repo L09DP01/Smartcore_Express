@@ -1,0 +1,203 @@
+/* Theme CSS for Dark/Light Mode */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-sidebar: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --primary-blue: #0047AB;
+  --secondary-orange: #FF6B00;
+  --accent-green: #00A86B;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1f2937;
+  --bg-secondary: #111827;
+  --bg-sidebar: #374151;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --border-color: #4b5563;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Apply theme variables */
+body {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bg-white {
+  background-color: var(--bg-primary) !important;
+}
+
+.bg-gray-50 {
+  background-color: var(--bg-secondary) !important;
+}
+
+.text-gray-800 {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-700 {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+.text-gray-500 {
+  color: var(--text-secondary) !important;
+}
+
+.text-gray-400 {
+  color: var(--text-secondary) !important;
+}
+
+.border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+.shadow-lg, .shadow-sm, .shadow {
+  box-shadow: var(--shadow) !important;
+}
+
+/* Dark mode specific improvements */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] p {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] span {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .text-white {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .bg-blue-50 {
+  background-color: #1e3a8a !important;
+}
+
+[data-theme="dark"] .bg-indigo-50 {
+  background-color: #312e81 !important;
+}
+
+[data-theme="dark"] .hover\:bg-gray-100:hover {
+  background-color: #4b5563 !important;
+}
+
+[data-theme="dark"] .hover\:bg-blue-50:hover {
+  background-color: #1e40af !important;
+}
+
+/* Logo visibility in dark mode */
+[data-theme="dark"] img {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Ensure dropdown menu is visible in dark mode */
+[data-theme="dark"] .dropdown-menu {
+  background-color: var(--bg-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Cards and containers */
+[data-theme="dark"] .bg-gradient-to-r {
+  background: linear-gradient(to right, #1e3a8a, #312e81) !important;
+}
+
+/* Sidebar dark theme */
+[data-theme="dark"] .sidebar {
+  background-color: var(--bg-sidebar);
+}
+
+/* Cards dark theme */
+[data-theme="dark"] .card {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+/* Theme toggle switch */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-blue);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Icons for theme switch */
+.theme-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #666;
+  z-index: 1;
+}
+
+.theme-icon.sun {
+  left: 6px;
+}
+
+.theme-icon.moon {
+  right: 6px;
+}
+
+input:checked + .slider .theme-icon.sun {
+  color: #fff;
+}
+
+input:not(:checked) + .slider .theme-icon.moon {
+  color: #fff;
+}

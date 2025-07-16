@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services de Shipping USA-Haïti | Téléphones, Laptops, Vêtements - Smartcore Express</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Services de shipping spécialisés USA-Haïti : téléphones ($45), laptops ($50), vêtements ($4.5/lb). Achat assisté et consolidation disponibles. Livraison 3-5 jours.">
+    <meta name="keywords" content="shipping téléphones Haiti, expédition laptops USA Haiti, envoi vêtements, achat assisté, consolidation colis, Smartcore Express services">
+    <meta name="author" content="Smartcore Express">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://smartcoreexpress.com/services.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartcoreexpress.com/services.html">
+    <meta property="og:title" content="Services de Shipping USA-Haïti - Smartcore Express">
+    <meta property="og:description" content="Services spécialisés : téléphones, laptops, vêtements. Achat assisté et consolidation. Livraison rapide et sécurisée.">
+    <meta property="og:image" content="https://smartcoreexpress.com/img/Logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Services de Shipping USA-Haïti - Smartcore Express">
+    <meta property="twitter:description" content="Services spécialisés : téléphones, laptops, vêtements. Achat assisté et consolidation. Livraison rapide et sécurisée.">
+    <meta property="twitter:image" content="https://smartcoreexpress.com/img/Logo.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Services de Shipping Smartcore Express",
+      "provider": {
+        "@type": "Organization",
+        "name": "Smartcore Express",
+        "url": "https://smartcoreexpress.com"
+      },
+      "description": "Services de shipping spécialisés des USA vers Haïti",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Expédition Téléphones",
+          "price": "45",
+          "priceCurrency": "USD",
+          "description": "Service spécialisé pour l'expédition sécurisée de téléphones"
+        },
+        {
+          "@type": "Offer",
+          "name": "Expédition Laptops",
+          "price": "50",
+          "priceCurrency": "USD",
+          "description": "Transport sécurisé pour ordinateurs portables"
+        },
+        {
+          "@type": "Offer",
+          "name": "Vêtements & Accessoires",
+          "price": "4.5",
+          "priceCurrency": "USD",
+          "description": "Service optimisé pour vêtements et accessoires"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration Tailwind personnalisée -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0047AB', // Bleu cobalt
+                        secondary: '#FF6B00', // Orange
+                        accent: '#00A86B', // Vert jade
+                        dark: '#1A1A1A',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Polices Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles personnalisés -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="img/Logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Smartcore Express">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#0047AB">
+    <meta name="msapplication-TileImage" content="img/Logo.png">
+    
+    <script src="pwa-global.js" defer></script>
+    <link rel="icon" type="image/png" href="client/logo.png">
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- En-tête / Navigation -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="img/Logo.png" alt="Smartcore Express" class="h-10 w-auto">
+                        <span class="ml-2 text-xl font-bold text-primary">Smartcore Express</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Menu de navigation principal (desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-dark font-medium hover:text-primary transition">Accueil</a>
+                <a href="services.html" class="text-primary font-medium hover:text-secondary transition">Services</a>
+                <a href="about.html" class="text-dark font-medium hover:text-primary transition">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium hover:text-primary transition">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium hover:text-primary transition">Contact</a>
+                <a href="auth/login.php" class="text-dark font-medium hover:text-primary transition" title="Connexion">
+                    <i class="fas fa-user-alt"></i>
+                </a>
+            </div>
+            
+            <!-- Bouton menu mobile -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Menu mobile (caché par défaut) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white pb-4 shadow-lg">
+            <div class="container mx-auto px-4 flex flex-col space-y-3">
+                <a href="index.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Accueil</a>
+                <a href="services.html" class="text-primary font-medium py-2 border-b border-gray-100">Services</a>
+                <a href="about.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Contact</a>
+                <a href="auth/login.php" class="text-dark font-medium py-2 hover:text-primary flex items-center" title="Connexion">
+                    <i class="fas fa-user-alt mr-2"></i>Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Espace pour compenser la hauteur du header fixe -->
+    <div class="h-24"></div>
+
+    <!-- Section Hero -->
+    <section class="bg-primary text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Nos Services</h1>
+            <p class="text-xl max-w-3xl mx-auto">Découvrez notre gamme complète de services de shipping et d'achat assisté entre les États-Unis et Haïti.</p>
+        </div>
+    </section>
+
+    <!-- Section Services Principaux -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Services de Shipping</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Nous offrons des solutions de transport fiables et sécurisées pour tous vos besoins d'expédition.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 - Téléphones -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-primary service-card">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Expédition Téléphones</h3>
+                    <p class="text-gray-600 mb-4">Service spécialisé pour l'expédition sécurisée de téléphones et appareils mobiles. Délai de livraison: 3-5 jours ouvrables.</p>
+                    <ul class="text-gray-600 mb-4 space-y-2 custom-list">
+                        <li>Suivi en temps réel</li>
+                        <li>Assurance de base incluse</li>
+                        <li>Emballage sécurisé</li>
+                        <li>Service client dédié</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span class="text-2xl font-bold text-primary">$45</span>
+                        <span class="text-gray-500">fixe</span>
+                    </div>
+                </div>
+                
+                <!-- Service 2 - Laptops -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-secondary service-card">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Expédition Laptops</h3>
+                    <p class="text-gray-600 mb-4">Transport sécurisé pour ordinateurs portables et équipements informatiques. Délai de livraison: 3-5 jours ouvrables.</p>
+                    <ul class="text-gray-600 mb-4 space-y-2 custom-list">
+                        <li>Suivi en temps réel</li>
+                        <li>Assurance de base incluse</li>
+                        <li>Emballage anti-choc</li>
+                        <li>Manipulation délicate</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span class="text-2xl font-bold text-secondary">$50</span>
+                        <span class="text-gray-500">fixe</span>
+                    </div>
+                </div>
+                
+                <!-- Service 3 - Vêtements et Accessoires -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-accent service-card">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Vêtements & Accessoires</h3>
+                    <p class="text-gray-600 mb-4">Service optimisé pour vêtements, chaussures et accessoires de mode. Stockage gratuit et consolidation disponible.</p>
+                    <ul class="text-gray-600 mb-4 space-y-2 custom-list">
+                        <li>Stockage 30 jours gratuit</li>
+                        <li>Emballage optimisé</li>
+                        <li>Consolidation possible</li>
+                        <li>Photos de vérification</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span class="text-2xl font-bold text-accent">$4.5</span>
+                        <span class="text-gray-500">/lb + frais</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Achat Assisté -->
+    <section id="achasi" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Service d'Achat Assisté</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Nous achetons pour vous des produits sur les sites américains et les livrons directement en Haïti.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <!-- Image représentative du service d'achat assisté -->
+                    <div class="w-full h-80 rounded-lg overflow-hidden">
+                        <img src="img/Image illustrant le service d'achat assisté.jpg" alt="Service d'achat assisté" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold mb-4">Comment fonctionne notre service d'achat assisté?</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Envoyez-nous votre demande</h4>
+                                <p class="text-gray-600">Partagez avec nous les liens des produits que vous souhaitez acheter sur les sites américains.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Recevez un devis détaillé</h4>
+                                <p class="text-gray-600">Nous vous envoyons un devis comprenant le prix des produits, les taxes, les frais de service et d'expédition.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Effectuez le paiement</h4>
+                                <p class="text-gray-600">Après votre approbation, effectuez le paiement sécurisé pour confirmer votre commande.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">4</div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Nous achetons et expédions</h4>
+                                <p class="text-gray-600">Nous achetons les produits, vérifions leur état et les expédions vers Haïti.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">5</div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Recevez vos produits</h4>
+                                <p class="text-gray-600">Recevez vos produits directement à votre adresse en Haïti ou récupérez-les dans nos bureaux.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services Additionnels -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Services Additionnels</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Des options supplémentaires pour répondre à tous vos besoins.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <!-- Service Additionnel 1 -->
+                <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                    <div class="text-primary text-3xl mb-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Assurance Premium</h3>
+                    <p class="text-gray-600">Protection complète pour vos colis de valeur avec une couverture jusqu'à 100% de la valeur déclarée.</p>
+                </div>
+                
+                <!-- Service Additionnel 2 -->
+                <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                    <div class="text-primary text-3xl mb-3">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Emballage Spécial</h3>
+                    <p class="text-gray-600">Service d'emballage renforcé pour les articles fragiles ou de grande valeur.</p>
+                </div>
+                
+                <!-- Service Additionnel 3 -->
+                <div class="bg-white p-5 rounded-lg shadow hover:shadow-lg transition duration-300">
+                    <div class="text-primary text-3xl mb-3">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Photos de Vérification</h3>
+                    <p class="text-gray-600">Recevez des photos détaillées de vos colis avant l'expédition pour vérifier leur état.</p>
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Tarifs -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Nos Tarifs</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Des prix compétitifs pour tous vos besoins d'expédition.</p>
+            </div>
+            
+            <!-- Version Desktop -->
+            <div class="hidden md:block overflow-x-auto">
+                <table class="w-full bg-white shadow-lg rounded-lg overflow-hidden">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th class="py-4 px-6 text-left">Service</th>
+                            <th class="py-4 px-6 text-center">Prix</th>
+                            <th class="py-4 px-6 text-center">Délai</th>
+                            <th class="py-4 px-6 text-center">Caractéristiques</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-4 px-6 font-medium">Téléphone</td>
+                            <td class="py-4 px-6 text-center">$45 fixe</td>
+                            <td class="py-4 px-6 text-center">3-5 jours</td>
+                            <td class="py-4 px-6">Suivi en temps réel, assurance de base</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 bg-gray-50">
+                            <td class="py-4 px-6 font-medium">Laptop</td>
+                            <td class="py-4 px-6 text-center">$50</td>
+                            <td class="py-4 px-6 text-center">3-5 jours</td>
+                            <td class="py-4 px-6">Suivi en temps réel, assurance de base</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-4 px-6 font-medium">Vêtement et Accessoires</td>
+                            <td class="py-4 px-6 text-center">$4.5/lb + frais</td>
+                            <td class="py-4 px-6 text-center">Selon option</td>
+                            <td class="py-4 px-6">Stockage 30 jours, emballage optimisé</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 bg-gray-50">
+                            <td class="py-4 px-6 font-medium">Achat Assisté</td>
+                            <td class="py-4 px-6 text-center">0$ frais service</td>
+                            <td class="py-4 px-6 text-center">Variable</td>
+                            <td class="py-4 px-6">Achat, vérification, expédition</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-medium">Assurance Premium</td>
+                            <td class="py-4 px-6 text-center">2% de la valeur</td>
+                            <td class="py-4 px-6 text-center">5-10 jours</td>
+                            <td class="py-4 px-6">Couverture jusqu'à 100% de la valeur</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Version Mobile - Cards -->
+            <div class="md:hidden space-y-4">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-4 border-l-4 border-primary">
+                    <h3 class="font-bold text-lg text-primary mb-2">Téléphone</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div>
+                            <span class="font-medium text-gray-600">Prix:</span>
+                            <span class="block text-primary font-bold">$45 fixe</span>
+                        </div>
+                        <div>
+                            <span class="font-medium text-gray-600">Délai:</span>
+                            <span class="block">3-5 jours</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="font-medium text-gray-600">Caractéristiques:</span>
+                        <p class="text-sm mt-1">Suivi en temps réel, assurance de base</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-lg shadow-lg p-4 border-l-4 border-secondary">
+                    <h3 class="font-bold text-lg text-secondary mb-2">Laptop</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div>
+                            <span class="font-medium text-gray-600">Prix:</span>
+                            <span class="block text-secondary font-bold">$50</span>
+                        </div>
+                        <div>
+                            <span class="font-medium text-gray-600">Délai:</span>
+                            <span class="block">3-5 jours</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="font-medium text-gray-600">Caractéristiques:</span>
+                        <p class="text-sm mt-1">Suivi en temps réel, assurance de base</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-lg shadow-lg p-4 border-l-4 border-accent">
+                    <h3 class="font-bold text-lg text-accent mb-2">Vêtement et Accessoires</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div>
+                            <span class="font-medium text-gray-600">Prix:</span>
+                            <span class="block text-accent font-bold">$4.5/lb + frais</span>
+                        </div>
+                        <div>
+                            <span class="font-medium text-gray-600">Délai:</span>
+                            <span class="block">Selon option</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="font-medium text-gray-600">Caractéristiques:</span>
+                        <p class="text-sm mt-1">Stockage 30 jours, emballage optimisé</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white rounded-lg shadow-lg p-4 border-l-4 border-primary">
+                    <h3 class="font-bold text-lg text-primary mb-2">Achat Assisté</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div>
+                            <span class="font-medium text-gray-600">Prix:</span>
+                            <span class="block text-primary font-bold">0$ frais service</span>
+                        </div>
+                        <div>
+                            <span class="font-medium text-gray-600">Délai:</span>
+                            <span class="block">Variable</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="font-medium text-gray-600">Caractéristiques:</span>
+                        <p class="text-sm mt-1">Achat, vérification, expédition</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white rounded-lg shadow-lg p-4 border-l-4 border-secondary">
+                    <h3 class="font-bold text-lg text-secondary mb-2">Assurance Premium</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div>
+                            <span class="font-medium text-gray-600">Prix:</span>
+                            <span class="block text-secondary font-bold">2% de la valeur</span>
+                        </div>
+                        <div>
+                            <span class="font-medium text-gray-600">Délai:</span>
+                            <span class="block">5-10 jours</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="font-medium text-gray-600">Caractéristiques:</span>
+                        <p class="text-sm mt-1">Couverture jusqu'à 100% de la valeur</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 text-gray-600">
+                <p>* Les prix peuvent varier en fonction du poids, des dimensions et de la destination exacte.</p>
+                <p>* Des frais supplémentaires peuvent s'appliquer pour les articles surdimensionnés ou de grande valeur.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Prêt à utiliser nos services?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Contactez-nous dès aujourd'hui pour discuter de vos besoins d'expédition ou pour obtenir un devis personnalisé.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="contact.html" class="bg-white hover:bg-gray-100 text-primary font-medium py-3 px-8 rounded-lg transition duration-300 shadow-lg">Nous Contacter</a>
+             
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="bg-dark text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- À propos -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">À propos de Smartcore Express</h3>
+                    <p class="text-gray-400 mb-4">Smartcore Express est votre partenaire de confiance pour tous vos besoins de shipping entre les États-Unis et Haïti.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">À Propos</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="hidden md:block">
+                    <h3 class="text-xl font-bold mb-4">Nos Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Shipping Standard</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Consolidation de Colis</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Livraison Express</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Assurance Colis</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Devarenne, Trou-du-Nord, Haïti</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+509 40035664</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">info@smartcoreexpress.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Lun-Ven: 8h-21h | Sam: 9h-12h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 Smartcore Express. Tous droits réservés.</p>
+                    <div class="flex space-x-6">
+                        <a href="conditions-utilisation.html" class="text-gray-400 hover:text-white text-sm transition">Conditions d'utilisation</a>
+                        <a href="politique-confidentialite.html" class="text-gray-400 hover:text-white text-sm transition">Politique de confidentialité</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

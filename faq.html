@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Smartcore Express</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration Tailwind personnalisée -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0047AB', // Bleu cobalt
+                        secondary: '#FF6B00', // Orange
+                        accent: '#00A86B', // Vert jade
+                        dark: '#1A1A1A',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Polices Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles personnalisés -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="client/logo.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="img/Logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Smartcore Express">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#0047AB">
+    <meta name="msapplication-TileImage" content="img/Logo.png">
+    
+    <script src="pwa-global.js" defer></script>
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- En-tête / Navigation -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="img/Logo.png" alt="Smartcore Express" class="h-10 w-auto">
+                        <span class="ml-2 text-xl font-bold text-primary">Smartcore Express</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Menu de navigation principal (desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-dark font-medium hover:text-primary transition">Accueil</a>
+                <a href="services.html" class="text-dark font-medium hover:text-primary transition">Services</a>
+                <a href="about.html" class="text-dark font-medium hover:text-primary transition">À Propos</a>
+                <a href="faq.html" class="text-primary font-medium hover:text-secondary transition">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium hover:text-primary transition">Contact</a>
+                <a href="auth/login.php" class="text-dark font-medium hover:text-primary transition" title="Connexion">
+                    <i class="fas fa-user-alt"></i>
+                </a>
+            </div>
+            
+            <!-- Bouton menu mobile -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Menu mobile (caché par défaut) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white pb-4 shadow-lg">
+            <div class="container mx-auto px-4 flex flex-col space-y-3">
+                <a href="index.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Accueil</a>
+                <a href="services.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Services</a>
+                <a href="about.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">À Propos</a>
+                <a href="faq.html" class="text-primary font-medium py-2 border-b border-gray-100">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Contact</a>
+                <a href="auth/login.php" class="text-dark font-medium py-2 hover:text-primary flex items-center" title="Connexion">
+                    <i class="fas fa-user-alt mr-2"></i>Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Espace pour compenser la hauteur du header fixe -->
+    <div class="h-24"></div>
+
+    <!-- Section Hero -->
+    <section class="bg-primary text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Foire Aux Questions</h1>
+            <p class="text-xl max-w-3xl mx-auto">Trouvez des réponses aux questions les plus fréquemment posées sur nos services.</p>
+        </div>
+    </section>
+
+    <!-- Section Recherche -->
+    <section class="py-10 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <input type="text" placeholder="Rechercher une question..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent pl-12">
+                    <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Catégories de FAQ -->
+    <section class="py-10 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-dark mb-4">Catégories</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Sélectionnez une catégorie pour trouver rapidement les réponses à vos questions.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Catégorie 1 -->
+                <a href="#shipping" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Shipping & Livraison</h3>
+                    <p class="text-gray-600">Questions sur nos services d'expédition, délais et tarifs.</p>
+                </a>
+                
+                <!-- Catégorie 2 -->
+                <a href="#achat" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Achat Assisté</h3>
+                    <p class="text-gray-600">Tout savoir sur notre service d'achat assisté aux États-Unis.</p>
+                </a>
+                
+                <!-- Catégorie 3 -->
+                <a href="#compte" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Compte & Paiement</h3>
+                    <p class="text-gray-600">Questions sur votre compte, options de paiement et facturation.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ Shipping & Livraison -->
+    <section id="shipping" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Shipping & Livraison</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Tout ce que vous devez savoir sur nos services d'expédition.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Question 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Combien de temps faut-il pour recevoir mes colis?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Le délai de livraison dépend du service d'expédition choisi:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Service Express:</strong> 3-5 jours ouvrables</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Ces délais sont calculés à partir du moment où nous recevons les produits dans notre entrepôt américain. Des facteurs externes comme les conditions météorologiques ou les procédures douanières peuvent parfois affecter ces délais.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment puis-je suivre mon colis?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Vous pouvez suivre votre colis de plusieurs façons:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li>En vous connectant à votre compte sur notre site web et en accédant à la section "Mes Envois"</li>
+                            <li>Via les notifications par email ou SMS que nous envoyons à chaque étape importante du processus</li>
+                            <li>En contactant notre service client avec votre numéro de suivi</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Nous fournissons des mises à jour en temps réel pour que vous puissiez suivre votre colis à chaque étape de son voyage.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Quels sont vos tarifs d'expédition?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nos tarifs d'expédition sont calculés en fonction du poids et des dimensions de vos colis:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Service Express:</strong> $4.50/lb</li>
+                           
+                        </ul>
+                        <p class="text-gray-600 mt-2">Des frais supplémentaires peuvent s'appliquer pour les articles surdimensionnés ou de grande valeur. Pour obtenir un devis précis, veuillez utiliser notre calculateur de tarifs sur la page Services ou contactez notre service client.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Que se passe-t-il si mon colis est perdu ou endommagé?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nous prenons toutes les précautions nécessaires pour assurer la sécurité de vos colis. Cependant, en cas de problème:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li>Tous nos envois incluent une assurance de base qui couvre jusqu'à $100 de la valeur déclarée</li>
+                            <li>Pour une protection supplémentaire, nous proposons une assurance premium qui couvre jusqu'à 100% de la valeur déclarée (moyennant des frais supplémentaires de 2% de la valeur)</li>
+                            <li>En cas de dommage, veuillez nous contacter dans les 48 heures suivant la réception avec des photos</li>
+                            <li>Pour les colis perdus, nous lançons immédiatement une enquête et vous tenons informé de son avancement</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Notre politique de remboursement ou de remplacement s'applique selon les termes de l'assurance que vous avez choisie.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Livrez-vous dans toutes les régions d'Haïti?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Oui, nous livrons dans toutes les régions d'Haïti. Cependant, les délais et les frais peuvent varier selon la destination:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li>Port-au-Prince et ses environs: livraison standard sans frais supplémentaires</li>
+                            <li>Grandes villes (Cap-Haïtien, Jacmel, Gonaïves, etc.): léger supplément et délai de 1-2 jours supplémentaires</li>
+                            <li>Zones rurales et éloignées: supplément plus important et délai de 2-4 jours supplémentaires</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Vous pouvez également choisir de récupérer vos colis dans l'un de nos bureaux pour éviter les frais de livraison à domicile.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ Achat Assisté -->
+    <section id="achat" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Achat Assisté</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Tout ce que vous devez savoir sur notre service d'achat assisté.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Question 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment fonctionne le service d'achat assisté?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Notre service d'achat assisté fonctionne en 5 étapes simples:</p>
+                        <ol class="list-decimal pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Demande:</strong> Vous nous envoyez les liens des produits que vous souhaitez acheter</li>
+                            <li><strong>Devis:</strong> Nous vous envoyons un devis détaillé incluant le prix des produits, les taxes, les frais de service et d'expédition</li>
+                            <li><strong>Paiement:</strong> Après votre approbation, vous effectuez le paiement pour confirmer votre commande</li>
+                            <li><strong>Achat & Expédition:</strong> Nous achetons les produits, vérifions leur état et les expédions vers Haïti</li>
+                            <li><strong>Réception:</strong> Vous recevez vos produits à votre adresse en Haïti ou les récupérez dans nos bureaux</li>
+                        </ol>
+                        <p class="text-gray-600 mt-2">Tout au long du processus, vous recevez des mises à jour régulières sur l'état de votre commande.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Quels sont les frais pour le service d'achat assisté?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nos frais pour le service d'achat assisté sont structurés comme suit:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Frais de service:</strong> 10% du prix d'achat des produits (minimum $5)</li>
+                            <li><strong>Frais d'expédition:</strong> Calculés selon le poids et les dimensions (à partir de $5.99/lb)</li>
+                            <li><strong>Frais de consolidation:</strong> $5 par colis supplémentaire si vous commandez plusieurs articles</li>
+                            <li><strong>Assurance:</strong> 2% de la valeur déclarée (optionnel)</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Pour les achats de grande valeur (plus de $1000), nous proposons des tarifs dégressifs. Tous les frais sont clairement détaillés dans le devis que nous vous envoyons avant l'achat.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Sur quels sites américains pouvez-vous acheter?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nous pouvons acheter sur la plupart des sites de vente en ligne américains, notamment:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1 grid grid-cols-2">
+                            <li>Amazon</li>
+                            <li>eBay</li>
+                            <li>Walmart</li>
+                            <li>Best Buy</li>
+                            <li>Target</li>
+                            <li>Macy's</li>
+                            <li>Home Depot</li>
+                            <li>Nike</li>
+                            <li>Apple</li>
+                            <li>Et bien d'autres...</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Si vous souhaitez acheter sur un site qui n'est pas listé ici, n'hésitez pas à nous contacter. Dans la plupart des cas, nous pourrons vous aider.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment puis-je payer pour mes achats?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nous acceptons plusieurs méthodes de paiement pour faciliter vos achats:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Transferts bancaires locaux:</strong> Vers nos comptes bancaires en Haïti</li>
+                            <li><strong>Paiements mobiles:</strong> MonCash et autres services de paiement mobile</li>
+                            <li><strong>Paiements en espèces:</strong> Dans nos bureaux en Haïti</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Pour les clients réguliers, nous proposons également des options de crédit après vérification. Contactez notre service client pour plus d'informations.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Y a-t-il des produits que vous ne pouvez pas acheter?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Oui, certains produits sont soumis à des restrictions d'importation ou d'expédition:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li>Produits inflammables ou explosifs</li>
+                            <li>Armes et munitions</li>
+                            <li>Certains médicaments et produits pharmaceutiques</li>
+                            <li>Produits périssables (aliments frais, etc.)</li>
+                            <li>Animaux vivants</li>
+                            <li>Produits contrefaits ou illégaux</li>
+                            <li>Certains produits électroniques avec batteries au lithium</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Cette liste n'est pas exhaustive. Si vous avez des doutes concernant un produit spécifique, veuillez nous contacter avant de passer votre commande.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ Compte & Paiement -->
+    <section id="compte" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Compte & Paiement</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Questions sur votre compte, options de paiement et facturation.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Question 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment créer un compte chez Smartcore Express?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Créer un compte est simple et gratuit:</p>
+                        <ol class="list-decimal pl-5 mt-2 text-gray-600 space-y-1">
+                            <li>Visitez notre site web et cliquez sur "S'inscrire" dans le coin supérieur droit</li>
+                            <li>Remplissez le formulaire avec vos informations personnelles (nom, email, téléphone, adresse)</li>
+                            <li>Créez un mot de passe sécurisé</li>
+                            <li>Complétez votre profil avec vos préférences de livraison et de paiement</li>
+                        </ol>
+                        <p class="text-gray-600 mt-2">Une fois votre compte créé, vous recevrez une adresse de livraison aux USA que vous pourrez utiliser pour vos achats en ligne.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment obtenir une estimation des coûts avant de commander?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Vous pouvez obtenir une estimation des coûts de plusieurs façons:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Calculateur de tarifs:</strong> Utilisez notre calculateur en ligne sur la page Services en entrant le poids et les dimensions estimés de votre colis</li>
+                            <li><strong>Demande de devis:</strong> Envoyez-nous les liens des produits que vous souhaitez acheter, et nous vous enverrons un devis détaillé sans engagement</li>
+                            <li><strong>Contact direct:</strong> Contactez notre service client par téléphone, email ou chat pour obtenir une estimation personnalisée</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Toutes nos estimations incluent une ventilation détaillée des coûts (prix des produits, taxes, frais de service, frais d'expédition) pour une transparence totale.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment puis-je modifier mes informations personnelles?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Vous pouvez facilement modifier vos informations personnelles en suivant ces étapes:</p>
+                        <ol class="list-decimal pl-5 mt-2 text-gray-600 space-y-1">
+                            <li>Connectez-vous à votre compte sur notre site web</li>
+                            <li>Cliquez sur "Mon Profil" ou "Paramètres du compte" dans le menu</li>
+                            <li>Sélectionnez la section que vous souhaitez modifier (informations personnelles, adresses, préférences de paiement)</li>
+                            <li>Effectuez vos modifications et cliquez sur "Enregistrer"</li>
+                        </ol>
+                        <p class="text-gray-600 mt-2">Pour des raisons de sécurité, certaines modifications (comme le changement d'email principal) peuvent nécessiter une vérification supplémentaire.</p>
+                    </div>
+                </div>
+                
+                
+                <!-- Question 5 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment puis-je annuler ou modifier une commande?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Les possibilités d'annulation ou de modification dépendent du statut de votre commande:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Avant l'achat:</strong> Vous pouvez annuler ou modifier votre commande sans frais en contactant notre service client</li>
+                            <li><strong>Après l'achat mais avant l'expédition:</strong> Des frais d'annulation de 5% peuvent s'appliquer, et les modifications sont limitées (selon la politique de retour du vendeur)</li>
+                            <li><strong>Après l'expédition:</strong> L'annulation n'est plus possible, mais vous pouvez refuser la livraison (des frais de retour s'appliqueront)</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Pour annuler ou modifier une commande, contactez notre service client dès que possible par téléphone, email ou chat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Autres Questions -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Autres Questions</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Vous n'avez pas trouvé la réponse à votre question? Consultez ces questions supplémentaires ou contactez-nous.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Question 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Proposez-vous des services pour les entreprises?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Oui, nous proposons des services spécialement conçus pour les entreprises:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Compte Entreprise:</strong> Avec des tarifs préférentiels et un gestionnaire de compte dédié</li>
+                            <li><strong>Importation B2B:</strong> Pour les entreprises qui importent régulièrement des marchandises des USA</li>
+                            <li><strong>Solutions logistiques personnalisées:</strong> Adaptées aux besoins spécifiques de votre entreprise</li>
+                            <li><strong>Facturation simplifiée:</strong> Factures mensuelles et options de paiement flexibles</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Contactez notre équipe commerciale pour discuter de vos besoins spécifiques et obtenir une offre personnalisée.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment puis-je devenir un partenaire ou un affilié?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nous proposons deux programmes pour collaborer avec nous:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Programme d'affiliation:</strong> Gagnez des commissions en recommandant nos services via votre site web, blog ou réseaux sociaux</li>
+                            <li><strong>Programme de partenariat:</strong> Pour les entreprises qui souhaitent intégrer nos services à leur offre existante</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Pour postuler à l'un de ces programmes, visitez la section "Partenaires" de notre site web ou contactez notre équipe de développement commercial à partners@smartcoreexpress.com.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Quelles sont vos heures d'ouverture?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nos heures d'ouverture sont les suivantes:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                            <li><strong>Bureau de Trou-du-Nord:</strong> Lundi-Vendredi: 8h-21h | Samedi: 9h-12h</li>
+                            <li><strong>Bureau de Miami:</strong> Lundi-Vendredi: 9h-18h | Samedi: 10h-14h</li>
+                            <li><strong>Service client en ligne:</strong> Lundi-Samedi: 8h-20h | Dimanche: 10h-16h</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Veuillez noter que nos bureaux sont fermés pendant les jours fériés nationaux. Notre site web et notre système de suivi sont disponibles 24/7.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <p class="text-lg text-gray-600 mb-6">Vous n'avez toujours pas trouvé la réponse à votre question?</p>
+                <a href="contact.html" class="bg-primary hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300 shadow-lg inline-block">Contactez-nous</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="bg-dark text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- À propos -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">À propos de Smartcore Express</h3>
+                    <p class="text-gray-400 mb-4">Smartcore Express est votre partenaire de confiance pour tous vos besoins de shipping entre les États-Unis et Haïti.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">À Propos</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="hidden md:block">
+                    <h3 class="text-xl font-bold mb-4">Nos Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Shipping Standard</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Consolidation de Colis</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Livraison Express</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Assurance Colis</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Devarenne, Trou-du-Nord, Haïti</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+509 40035664</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">info@smartcoreexpress.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Lun-Ven: 8h-21h | Sam: 9h-12h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 Smartcore Express. Tous droits réservés.</p>
+                    <div class="flex space-x-6">
+                        <a href="conditions-utilisation.html" class="text-gray-400 hover:text-white text-sm transition">Conditions d'utilisation</a>
+                        <a href="politique-confidentialite.html" class="text-gray-400 hover:text-white text-sm transition">Politique de confidentialité</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions d'utilisation - Smartcore Express</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration Tailwind personnalisée -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0047AB', // Bleu cobalt
+                        secondary: '#FF6B00', // Orange
+                        accent: '#00A86B', // Vert jade
+                        dark: '#1A1A1A',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Polices Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles personnalisés -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="client/logo.png">
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- En-tête / Navigation -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="img/Logo.png" alt="Smartcore Express" class="h-10 w-auto">
+                        <span class="ml-2 text-xl font-bold text-primary">Smartcore Express</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Menu de navigation principal (desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-dark font-medium hover:text-primary transition">Accueil</a>
+                <a href="services.html" class="text-dark font-medium hover:text-primary transition">Services</a>
+                <a href="about.html" class="text-dark font-medium hover:text-primary transition">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium hover:text-primary transition">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium hover:text-primary transition">Contact</a>
+                <a href="auth/login.php" class="text-primary font-medium hover:text-secondary transition" title="Connexion">
+                    <i class="fas fa-user-alt"></i>
+                </a>
+            </div>
+            
+            <!-- Bouton menu mobile -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Menu mobile (caché par défaut) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white pb-4 shadow-lg">
+            <div class="container mx-auto px-4 flex flex-col space-y-3">
+                <a href="index.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Accueil</a>
+                <a href="services.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Services</a>
+                <a href="about.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Contact</a>
+                <a href="auth/login.php" class="text-primary font-medium py-2 hover:text-secondary flex items-center" title="Connexion">
+                    <i class="fas fa-user-alt mr-2"></i>Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Espace pour compenser la hauteur du header fixe -->
+    <div class="h-24"></div>
+
+    <!-- Section Conditions d'utilisation -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-dark mb-4">Conditions d'utilisation</h1>
+                    <p class="text-gray-600 text-lg">Dernière mise à jour : Décembre 2023</p>
+                </div>
+                
+                <div class="prose prose-lg max-w-none">
+                    <div class="bg-blue-50 border-l-4 border-primary p-6 mb-8">
+                        <p class="text-gray-700 mb-0">En utilisant les services de Smartcore Express, vous acceptez d'être lié par les présentes conditions d'utilisation. Veuillez les lire attentivement.</p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">1. Acceptation des conditions</h2>
+                    <p class="text-gray-700 mb-6">En accédant et en utilisant le site web de Smartcore Express et nos services de shipping, vous acceptez d'être lié par ces conditions d'utilisation et toutes les lois et réglementations applicables.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">2. Description des services</h2>
+                    <p class="text-gray-700 mb-4">Smartcore Express fournit des services de transport et d'expédition de colis entre les États-Unis et Haïti, incluant :</p>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Service de shipping standard</li>
+                        <li>Service d'achat assisté</li>
+                        <li>Consolidation de colis</li>
+                        <li>Livraison express</li>
+                        <li>Assurance colis</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">3. Inscription et compte utilisateur</h2>
+                    <p class="text-gray-700 mb-4">Pour utiliser nos services, vous devez :</p>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Fournir des informations exactes et complètes lors de l'inscription</li>
+                        <li>Maintenir la sécurité de votre mot de passe</li>
+                        <li>Être responsable de toutes les activités sous votre compte</li>
+                        <li>Nous notifier immédiatement de toute utilisation non autorisée</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">4. Articles interdits</h2>
+                    <p class="text-gray-700 mb-4">Il est strictement interdit d'expédier les articles suivants :</p>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Substances illégales ou dangereuses</li>
+                        <li>Armes et munitions</li>
+                        <li>Liquides inflammables</li>
+                        <li>Produits périssables</li>
+                        <li>Argent liquide et objets de valeur</li>
+                        <li>Articles contrefaits</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">5. Tarifs et paiements</h2>
+                    <p class="text-gray-700 mb-4">Les tarifs sont calculés selon le poids et les dimensions du colis. Le paiement doit être effectué avant l'expédition. Nous acceptons :</p>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Cartes de crédit et de débit</li>
+                        <li>Virements bancaires</li>
+                        <li>Paiements mobiles</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">6. Responsabilité et assurance</h2>
+                    <p class="text-gray-700 mb-6">Smartcore Express s'engage à traiter vos colis avec le plus grand soin. Cependant, notre responsabilité est limitée à la valeur déclarée du colis. Une assurance supplémentaire est disponible pour les articles de valeur.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">7. Délais de livraison</h2>
+                    <p class="text-gray-700 mb-6">Les délais de livraison sont estimatifs et peuvent varier selon les conditions douanières, météorologiques ou autres circonstances indépendantes de notre volonté.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">8. Réclamations</h2>
+                    <p class="text-gray-700 mb-6">Toute réclamation concernant un colis endommagé ou perdu doit être signalée dans les 7 jours suivant la livraison ou la date de livraison prévue.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">9. Modification des conditions</h2>
+                    <p class="text-gray-700 mb-6">Smartcore Express se réserve le droit de modifier ces conditions à tout moment. Les modifications seront publiées sur notre site web et entreront en vigueur immédiatement.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">10. Droit applicable</h2>
+                    <p class="text-gray-700 mb-6">Ces conditions sont régies par les lois haïtiennes. Tout litige sera soumis à la juridiction des tribunaux compétents d'Haïti.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">11. Contact</h2>
+                    <p class="text-gray-700 mb-6">Pour toute question concernant ces conditions d'utilisation, contactez-nous à :</p>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <p class="text-gray-700 mb-2"><strong>Email :</strong> legal@smartcoreexpress.com</p>
+                        <p class="text-gray-700 mb-2"><strong>Téléphone :</strong> +509 40035664</p>
+            <p class="text-gray-700 mb-0"><strong>Adresse :</strong> Devarenne, Trou-du-Nord, Haïti</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="bg-dark text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- À propos -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">À propos de Smartcore Express</h3>
+                    <p class="text-gray-400 mb-4">Smartcore Express est votre partenaire de confiance pour tous vos besoins de shipping entre les États-Unis et Haïti.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">À Propos</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="auth/register.php" class="text-gray-400 hover:text-white transition">Créer un compte</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="hidden md:block">
+                    <h3 class="text-xl font-bold mb-4">Nos Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Shipping Standard</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Consolidation de Colis</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Livraison Express</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Assurance Colis</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Devarenne, Trou-du-Nord, Haïti</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+509 40035664</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">info@smartcoreexpress.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Lun-Ven: 8h-21h | Sam: 9h-12h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 Smartcore Express. Tous droits réservés.</p>
+                    <div class="flex space-x-6">
+                        <a href="conditions-utilisation.html" class="text-gray-400 hover:text-white text-sm transition">Conditions d'utilisation</a>
+                        <a href="politique-confidentialite.html" class="text-gray-400 hover:text-white text-sm transition">Politique de confidentialité</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle du menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

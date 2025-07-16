@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de confidentialité - Smartcore Express</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration Tailwind personnalisée -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0047AB',
+                        secondary: '#FF6B00',
+                        accent: '#00A86B',
+                        dark: '#1A1A1A',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Polices Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles personnalisés -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="client/logo.png">
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- En-tête / Navigation -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="img/Logo.png" alt="Smartcore Express" class="h-10 w-auto">
+                        <span class="ml-2 text-xl font-bold text-primary">Smartcore Express</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Menu de navigation principal (desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-dark font-medium hover:text-primary transition">Accueil</a>
+                <a href="services.html" class="text-dark font-medium hover:text-primary transition">Services</a>
+                <a href="about.html" class="text-dark font-medium hover:text-primary transition">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium hover:text-primary transition">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium hover:text-primary transition">Contact</a>
+                <a href="auth/login.php" class="text-primary font-medium hover:text-secondary transition" title="Connexion">
+                    <i class="fas fa-user-alt"></i>
+                </a>
+            </div>
+            
+            <!-- Bouton menu mobile -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Menu mobile (caché par défaut) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white pb-4 shadow-lg">
+            <div class="container mx-auto px-4 flex flex-col space-y-3">
+                <a href="index.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Accueil</a>
+                <a href="services.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Services</a>
+                <a href="about.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Contact</a>
+                <a href="auth/login.php" class="text-primary font-medium py-2 hover:text-secondary flex items-center" title="Connexion">
+                    <i class="fas fa-user-alt mr-2"></i>Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Espace pour compenser la hauteur du header fixe -->
+    <div class="h-24"></div>
+
+    <!-- Section Politique de confidentialité -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-dark mb-4">Politique de confidentialité</h1>
+                    <p class="text-gray-600 text-lg">Dernière mise à jour : Décembre 2023</p>
+                </div>
+                
+                <div class="prose prose-lg max-w-none">
+                    <div class="bg-green-50 border-l-4 border-accent p-6 mb-8">
+                        <p class="text-gray-700 mb-0">Chez Smartcore Express, nous nous engageons à protéger votre vie privée et vos données personnelles. Cette politique explique comment nous collectons, utilisons et protégeons vos informations.</p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">1. Informations que nous collectons</h2>
+                    <h3 class="text-xl font-semibold text-dark mb-3">Informations personnelles</h3>
+                    <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+                        <li>Nom complet et informations de contact</li>
+                        <li>Adresse de livraison et de facturation</li>
+                        <li>Numéro de téléphone et adresse e-mail</li>
+                        <li>Informations de paiement (traitées de manière sécurisée)</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold text-dark mb-3">Informations sur les colis</h3>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Description et valeur des articles expédiés</li>
+                        <li>Poids et dimensions des colis</li>
+                        <li>Adresses d'expédition et de livraison</li>
+                        <li>Historique des expéditions</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">2. Comment nous utilisons vos informations</h2>
+                    <p class="text-gray-700 mb-4">Nous utilisons vos informations pour :</p>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Traiter et livrer vos colis</li>
+                        <li>Communiquer avec vous concernant vos expéditions</li>
+                        <li>Améliorer nos services et votre expérience client</li>
+                        <li>Respecter les obligations légales et douanières</li>
+                        <li>Prévenir la fraude et assurer la sécurité</li>
+                        <li>Vous envoyer des mises à jour sur nos services (avec votre consentement)</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">3. Partage de vos informations</h2>
+                    <p class="text-gray-700 mb-4">Nous ne vendons jamais vos informations personnelles. Nous pouvons partager vos données avec :</p>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Nos partenaires de transport et de livraison</li>
+                        <li>Les autorités douanières (selon les exigences légales)</li>
+                        <li>Les prestataires de services de paiement sécurisés</li>
+                        <li>Les autorités compétentes en cas d'obligation légale</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">4. Sécurité de vos données</h2>
+                    <p class="text-gray-700 mb-4">Nous mettons en place des mesures de sécurité robustes :</p>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Chiffrement SSL pour toutes les transmissions de données</li>
+                        <li>Stockage sécurisé des informations personnelles</li>
+                        <li>Accès limité aux données par le personnel autorisé</li>
+                        <li>Surveillance continue de nos systèmes</li>
+                        <li>Sauvegardes régulières et plans de récupération</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">5. Conservation des données</h2>
+                    <p class="text-gray-700 mb-6">Nous conservons vos informations personnelles aussi longtemps que nécessaire pour fournir nos services et respecter nos obligations légales. Les données d'expédition sont généralement conservées pendant 7 ans pour des raisons comptables et légales.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">6. Vos droits</h2>
+                    <p class="text-gray-700 mb-4">Vous avez le droit de :</p>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Accéder à vos informations personnelles</li>
+                        <li>Corriger ou mettre à jour vos données</li>
+                        <li>Demander la suppression de vos informations</li>
+                        <li>Vous opposer au traitement de vos données</li>
+                        <li>Demander la portabilité de vos données</li>
+                        <li>Retirer votre consentement à tout moment</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">7. Cookies et technologies similaires</h2>
+                    <p class="text-gray-700 mb-4">Notre site web utilise des cookies pour :</p>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li>Améliorer votre expérience de navigation</li>
+                        <li>Mémoriser vos préférences</li>
+                        <li>Analyser l'utilisation de notre site</li>
+                        <li>Personnaliser le contenu affiché</li>
+                    </ul>
+                    <p class="text-gray-700 mb-6">Vous pouvez gérer vos préférences de cookies dans les paramètres de votre navigateur.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">8. Transferts internationaux</h2>
+                    <p class="text-gray-700 mb-6">Étant donné la nature internationale de nos services entre les États-Unis et Haïti, vos données peuvent être transférées et traitées dans ces pays. Nous nous assurons que ces transferts respectent les normes de protection des données appropriées.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">9. Mineurs</h2>
+                    <p class="text-gray-700 mb-6">Nos services ne sont pas destinés aux personnes de moins de 18 ans. Nous ne collectons pas sciemment d'informations personnelles auprès de mineurs.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">10. Modifications de cette politique</h2>
+                    <p class="text-gray-700 mb-6">Nous pouvons mettre à jour cette politique de confidentialité périodiquement. Nous vous informerons de tout changement significatif par e-mail ou via notre site web.</p>
+
+                    <h2 class="text-2xl font-bold text-dark mb-4">11. Contact</h2>
+                    <p class="text-gray-700 mb-4">Pour toute question concernant cette politique de confidentialité ou pour exercer vos droits, contactez-nous :</p>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <p class="text-gray-700 mb-2"><strong>Responsable de la protection des données :</strong></p>
+                        <p class="text-gray-700 mb-2"><strong>Email :</strong> privacy@smartcoreexpress.com</p>
+                        <p class="text-gray-700 mb-2"><strong>Téléphone :</strong> +509 40035664</p>
+            <p class="text-gray-700 mb-0"><strong>Adresse :</strong> Devarenne, Trou-du-Nord, Haïti</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="bg-dark text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- À propos -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">À propos de Smartcore Express</h3>
+                    <p class="text-gray-400 mb-4">Smartcore Express est votre partenaire de confiance pour tous vos besoins de shipping entre les États-Unis et Haïti.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">À Propos</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="auth/register.php" class="text-gray-400 hover:text-white transition">Créer un compte</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="hidden md:block">
+                    <h3 class="text-xl font-bold mb-4">Nos Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Shipping Standard</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Consolidation de Colis</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Livraison Express</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Assurance Colis</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Devarenne, Trou-du-Nord, Haïti</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+509 40035664</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">info@smartcoreexpress.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Lun-Ven: 8h-21h | Sam: 9h-12h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 Smartcore Express. Tous droits réservés.</p>
+                    <div class="flex space-x-6">
+                        <a href="conditions-utilisation.html" class="text-gray-400 hover:text-white text-sm transition">Conditions d'utilisation</a>
+                        <a href="politique-confidentialite.html" class="text-gray-400 hover:text-white text-sm transition">Politique de confidentialité</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle du menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

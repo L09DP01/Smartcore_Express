@@ -1,0 +1,28 @@
+{
+  "name": "Smartcore Express",
+  "short_name": "Smartcore",
+  "description": "Services de shipping USA-Haïti - Livraison fiable et sécurisée",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0047AB",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "img/Logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "logistics", "shipping"],
+  "lang": "fr",
+  "dir": "ltr"
+}

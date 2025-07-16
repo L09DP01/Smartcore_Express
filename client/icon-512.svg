@@ -1,0 +1,50 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="64" fill="#0047AB"/>
+  
+  <!-- Main Icon -->
+  <g transform="translate(86, 86)">
+    <!-- Package Box -->
+    <rect x="50" y="120" width="240" height="160" rx="20" fill="#FFFFFF" stroke="#FF6B00" stroke-width="8"/>
+    
+    <!-- Package Lines -->
+    <line x1="50" y1="200" x2="290" y2="200" stroke="#FF6B00" stroke-width="6"/>
+    <line x1="170" y1="120" x2="170" y2="280" stroke="#FF6B00" stroke-width="6"/>
+    
+    <!-- Airplane -->
+    <g transform="translate(120, 40)">
+      <path d="M50 20L80 40L50 60L20 50L0 60L-20 40L0 20L20 30L50 20Z" fill="#00A86B" stroke="#FFFFFF" stroke-width="3"/>
+      <circle cx="30" cy="40" r="8" fill="#FFFFFF"/>
+      <circle cx="30" cy="40" r="4" fill="#0047AB"/>
+    </g>
+    
+    <!-- Speed Lines -->
+    <g opacity="0.7">
+      <line x1="20" y1="60" x2="45" y2="60" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+      <line x1="20" y1="75" x2="55" y2="75" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+      <line x1="20" y1="90" x2="40" y2="90" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+      <line x1="20" y1="105" x2="50" y2="105" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Location Pin -->
+    <g transform="translate(250, 290)">
+      <path d="M30 5C20.35 5 12.5 12.85 12.5 22.5C12.5 35.63 30 55 30 55S47.5 35.63 47.5 22.5C47.5 12.85 39.65 5 30 5ZM30 28.75C26.55 28.75 23.75 25.95 23.75 22.5S26.55 16.25 30 16.25S36.25 19.05 36.25 22.5S33.45 28.75 30 28.75Z" fill="#FF6B00" stroke="#FFFFFF" stroke-width="2"/>
+    </g>
+    
+    <!-- Tracking Lines -->
+    <g transform="translate(300, 150)" opacity="0.8">
+      <circle cx="0" cy="0" r="3" fill="#00A86B"/>
+      <circle cx="15" cy="15" r="3" fill="#00A86B"/>
+      <circle cx="30" cy="30" r="3" fill="#00A86B"/>
+      <line x1="0" y1="0" x2="15" y2="15" stroke="#00A86B" stroke-width="2" stroke-dasharray="5,5"/>
+      <line x1="15" y1="15" x2="30" y2="30" stroke="#00A86B" stroke-width="2" stroke-dasharray="5,5"/>
+    </g>
+  </g>
+  
+  <!-- Company Text -->
+  <text x="256" y="420" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="36" font-weight="bold">SMARTCORE</text>
+  <text x="256" y="460" text-anchor="middle" fill="#FF6B00" font-family="Arial, sans-serif" font-size="28" font-weight="bold">EXPRESS</text>
+  
+  <!-- Subtitle -->
+  <text x="256" y="485" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="16" opacity="0.8">Espace Client</text>
+</svg>

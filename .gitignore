@@ -1,0 +1,57 @@
+# Fichiers de configuration sensibles
+config/database.php
+
+# Dossiers de logs
+logs/
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Dossiers de cache
+cache/
+temp/
+
+# Fichiers uploadés par les utilisateurs
+uploads/profile_photos/
+img/profiles/
+
+# Dépendances Composer (optionnel - peut être inclus)
+vendor/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Variables d'environnement
+.env
+.env.local
+.env.production
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+
+# Fichiers de session PHP
+sessions/
+
+# Certificats SSL
+*.pem
+*.key
+*.crt
+
+# Fichiers de base de données
+*.sql
+*.db
+*.sqlite
+
+# Fichiers de configuration Apache/Nginx
+.htaccess.local
+nginx.conf.local

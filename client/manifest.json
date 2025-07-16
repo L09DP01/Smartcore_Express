@@ -1,0 +1,28 @@
+{
+  "name": "Smartcore Express",
+  "short_name": "Smartcore",
+  "description": "Gérez vos colis et suivez vos livraisons Smartcore Express en temps réel",
+  "start_url": "/client/dashboard.php",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0047AB",
+  "orientation": "portrait",
+  "scope": "/client/",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "logistics", "shipping"],
+  "lang": "fr",
+  "dir": "ltr"
+}

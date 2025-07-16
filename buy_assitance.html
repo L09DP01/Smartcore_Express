@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service d'Achat Assisté - Smartcore Express</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration Tailwind personnalisée -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0047AB', // Bleu cobalt
+                        secondary: '#FF6B00', // Orange
+                        accent: '#00A86B', // Vert jade
+                        dark: '#1A1A1A',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Polices Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles personnalisés -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="client/logo.png">
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- En-tête / Navigation -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="img/Logo.png" alt="Smartcore Express" class="h-10 w-auto">
+                        <span class="ml-2 text-xl font-bold text-primary">Smartcore Express</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Menu de navigation principal (desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-dark font-medium hover:text-primary transition">Accueil</a>
+                <a href="services.html" class="text-dark font-medium hover:text-primary transition">Services</a>
+                <a href="buy_assitance.html" class="text-primary font-medium hover:text-secondary transition">Achat Assisté</a>
+                <a href="about.html" class="text-dark font-medium hover:text-primary transition">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium hover:text-primary transition">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium hover:text-primary transition">Contact</a>
+                <a href="auth/login.php" class="text-dark font-medium hover:text-primary transition" title="Connexion">
+                    <i class="fas fa-user-alt"></i>
+                </a>
+            </div>
+            
+            <!-- Bouton menu mobile -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Menu mobile (caché par défaut) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white pb-4 shadow-lg">
+            <div class="container mx-auto px-4 flex flex-col space-y-3">
+                <a href="index.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Accueil</a>
+                <a href="services.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Services</a>
+                <a href="buy_assitance.html" class="text-primary font-medium py-2 border-b border-gray-100">Achat Assisté</a>
+                <a href="about.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Contact</a>
+                <a href="auth/login.php" class="text-dark font-medium py-2 hover:text-primary flex items-center" title="Connexion">
+                    <i class="fas fa-user-alt mr-2"></i>Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Espace pour compenser la hauteur du header fixe -->
+    <div class="h-24"></div>
+
+    <!-- Section Hero -->
+    <section class="bg-gradient-to-r from-secondary to-orange-500 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Service d'Achat Assisté</h1>
+            <p class="text-xl max-w-3xl mx-auto">Nous achetons pour vous des produits sur les sites américains et les livrons directement en Haïti.</p>
+        </div>
+    </section>
+
+    <!-- Section Présentation -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold text-dark mb-6">Accédez aux produits américains depuis Haïti</h2>
+                    <p class="text-lg text-gray-600 mb-6">Notre service d'achat assisté vous permet d'acheter facilement des produits sur les sites américains même si vous n'avez pas de carte de crédit internationale ou d'adresse de livraison aux États-Unis.</p>
+                    <p class="text-lg text-gray-600 mb-6">Nous nous occupons de tout le processus, de l'achat à la livraison, pour vous offrir une expérience d'achat sans tracas.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#comment-ca-marche" class="bg-primary hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-center transition duration-300 shadow-lg">Comment ça marche</a>
+                        <a href="#demande" class="bg-secondary hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg text-center transition duration-300 shadow-lg">Faire une demande</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <!-- Image du service d'achat assisté -->
+                    <img src="img/Image illustrant le service d'achat assisté.jpg" alt="Service d'achat assisté" class="w-full h-96 object-cover rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Avantages -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Pourquoi choisir notre service d'achat assisté?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Découvrez les avantages qui font de Smartcore Express votre partenaire idéal pour vos achats aux États-Unis.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Avantage 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pas besoin de carte internationale</h3>
+                    <p class="text-gray-600">Nous effectuons les achats pour vous, même si vous ne possédez pas de carte de crédit internationale. Payez en monnaie locale.</p>
+                </div>
+                
+                <!-- Avantage 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Accès à tous les sites américains</h3>
+                    <p class="text-gray-600">Amazon, eBay, Walmart, Best Buy, et bien d'autres - nous pouvons acheter sur pratiquement tous les sites de vente en ligne américains.</p>
+                </div>
+                
+                <!-- Avantage 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Achats sécurisés</h3>
+                    <p class="text-gray-600">Nous vérifions l'état des produits avant expédition et vous envoyons des photos pour confirmation. Protection contre les arnaques en ligne.</p>
+                </div>
+                
+                <!-- Avantage 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Consolidation de colis</h3>
+                    <p class="text-gray-600">Regroupez plusieurs achats en un seul envoi pour économiser sur les frais de livraison et simplifier le suivi.</p>
+                </div>
+                
+                <!-- Avantage 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Recherche de produits</h3>
+                    <p class="text-gray-600">Vous ne trouvez pas ce que vous cherchez? Notre équipe peut rechercher les meilleurs produits et prix pour vous.</p>
+                </div>
+                
+                <!-- Avantage 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Assistance personnalisée</h3>
+                    <p class="text-gray-600">Un conseiller dédié vous accompagne tout au long du processus d'achat et répond à toutes vos questions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Comment ça marche -->
+    <section id="comment-ca-marche" class="py-16 bg-gradient-to-br from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark mb-6">Comment fonctionne notre service d'achat assisté?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Un processus simple et transparent en 5 étapes pour recevoir vos produits américains directement en Haïti.</p>
+            </div>
+            
+            <div class="relative max-w-6xl mx-auto">
+                <!-- Ligne de progression verticale pour mobile -->
+                 <div class="md:hidden absolute left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary to-primary opacity-30"></div>
+                <!-- Ligne de progression horizontale pour desktop -->
+                <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary to-primary transform -translate-y-1/2"></div>
+                
+                <!-- Étapes -->
+                <div class="space-y-8 md:space-y-16 relative">
+                    <!-- Étape 1 -->
+                    <div class="md:flex items-center md:space-x-12 relative">
+                        <!-- Contenu mobile -->
+                        <div class="md:hidden bg-white rounded-2xl shadow-xl p-6 ml-16 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-primary to-blue-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-lg">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-dark mb-2">Envoyez votre demande</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Partagez avec nous les liens des produits que vous souhaitez acheter sur les sites américains. Vous pouvez également nous décrire le produit si vous ne trouvez pas de lien.</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 rounded-xl overflow-hidden">
+                                <img src="img/Image illustrant l'envoi de demande.jpg" alt="Envoi de demande" class="w-full h-40 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Contenu desktop -->
+                        <div class="hidden md:flex md:w-1/2 md:text-right md:pr-8">
+                            <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                                <h3 class="text-2xl font-bold text-dark mb-4">Envoyez votre demande</h3>
+                                <p class="text-gray-600 leading-relaxed">Partagez avec nous les liens des produits que vous souhaitez acheter sur les sites américains. Vous pouvez également nous décrire le produit si vous ne trouvez pas de lien.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:flex items-center justify-center z-10">
+                            <div class="w-16 h-16 bg-gradient-to-r from-primary to-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-2xl border-4 border-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:block md:w-1/2 md:pl-8">
+                            <div class="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+                                <img src="img/Image illustrant l'envoi de demande.jpg" alt="Envoi de demande" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Numéro d'étape pour mobile -->
+                         <div class="md:hidden absolute left-6 top-6 w-12 h-12 bg-gradient-to-r from-primary to-blue-600 text-white rounded-full flex items-center justify-center text-lg font-bold shadow-lg border-4 border-white z-10">1</div>
+                    </div>
+                    
+                    <!-- Étape 2 -->
+                    <div class="md:flex items-center md:space-x-12 relative">
+                        <!-- Contenu mobile -->
+                        <div class="md:hidden bg-white rounded-2xl shadow-xl p-6 ml-16 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-lg">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-dark mb-2">Recevez un devis détaillé</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Nous vous envoyons un devis comprenant le prix des produits, les taxes, les frais de service et d'expédition. Tout est transparent, sans frais cachés.</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 rounded-xl overflow-hidden">
+                                <img src="img/Image illustrant le devis.jpg" alt="Devis détaillé" class="w-full h-40 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Contenu desktop -->
+                        <div class="hidden md:block md:w-1/2 md:pr-8">
+                            <div class="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+                                <img src="img/Image illustrant le devis.jpg" alt="Devis détaillé" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:flex items-center justify-center z-10">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-2xl border-4 border-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:flex md:w-1/2 md:pl-8">
+                            <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                                <h3 class="text-2xl font-bold text-dark mb-4">Recevez un devis détaillé</h3>
+                                <p class="text-gray-600 leading-relaxed">Nous vous envoyons un devis comprenant le prix des produits, les taxes, les frais de service et d'expédition. Tout est transparent, sans frais cachés.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Numéro d'étape pour mobile -->
+                         <div class="md:hidden absolute left-6 top-6 w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full flex items-center justify-center text-lg font-bold shadow-lg border-4 border-white z-10">2</div>
+                    </div>
+                    
+                    <!-- Étape 3 -->
+                    <div class="md:flex items-center md:space-x-12 relative">
+                        <!-- Contenu mobile -->
+                        <div class="md:hidden bg-white rounded-2xl shadow-xl p-6 ml-16 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-lg">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-dark mb-2">Effectuez le paiement</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Après votre approbation, effectuez le paiement sécurisé pour confirmer votre commande. Nous proposons plusieurs méthodes de paiement adaptées au marché haïtien.</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 rounded-xl overflow-hidden">
+                                <img src="img/Image illustrant le paiement.jpg" alt="Paiement sécurisé" class="w-full h-40 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Contenu desktop -->
+                        <div class="hidden md:flex md:w-1/2 md:text-right md:pr-8">
+                            <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                                <h3 class="text-2xl font-bold text-dark mb-4">Effectuez le paiement</h3>
+                                <p class="text-gray-600 leading-relaxed">Après votre approbation, effectuez le paiement sécurisé pour confirmer votre commande. Nous proposons plusieurs méthodes de paiement adaptées au marché haïtien.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:flex items-center justify-center z-10">
+                            <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-2xl border-4 border-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:block md:w-1/2 md:pl-8">
+                            <div class="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+                                <img src="img/Image illustrant le paiement.jpg" alt="Paiement sécurisé" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Numéro d'étape pour mobile -->
+                         <div class="md:hidden absolute left-6 top-6 w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full flex items-center justify-center text-lg font-bold shadow-lg border-4 border-white z-10">3</div>
+                    </div>
+                    
+                    <!-- Étape 4 -->
+                    <div class="md:flex items-center md:space-x-12 relative">
+                        <!-- Contenu mobile -->
+                        <div class="md:hidden bg-white rounded-2xl shadow-xl p-6 ml-16 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-lg">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-dark mb-2">Nous achetons et expédions</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Nous achetons les produits, vérifions leur état et vous envoyons des photos. Après votre confirmation, nous expédions les articles vers Haïti.</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 rounded-xl overflow-hidden">
+                                <img src="img/Image illustrant l'achat et l'expédition.jpg" alt="Achat et expédition" class="w-full h-40 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Contenu desktop -->
+                        <div class="hidden md:block md:w-1/2 md:pr-8">
+                            <div class="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+                                <img src="img/Image illustrant l'achat et l'expédition.jpg" alt="Achat et expédition" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:flex items-center justify-center z-10">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-2xl border-4 border-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:flex md:w-1/2 md:pl-8">
+                            <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                                <h3 class="text-2xl font-bold text-dark mb-4">Nous achetons et expédions</h3>
+                                <p class="text-gray-600 leading-relaxed">Nous achetons les produits, vérifions leur état et vous envoyons des photos. Après votre confirmation, nous expédions les articles vers Haïti.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Numéro d'étape pour mobile -->
+                         <div class="md:hidden absolute left-6 top-6 w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-full flex items-center justify-center text-lg font-bold shadow-lg border-4 border-white z-10">4</div>
+                    </div>
+                    
+                    <!-- Étape 5 -->
+                    <div class="md:flex items-center md:space-x-12 relative">
+                        <!-- Contenu mobile -->
+                        <div class="md:hidden bg-white rounded-2xl shadow-xl p-6 ml-16 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-lg">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-dark mb-2">Recevez vos produits</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed">Recevez vos produits directement à votre adresse en Haïti ou récupérez-les dans nos bureaux. Nous vous notifions à chaque étape du processus de livraison.</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 rounded-xl overflow-hidden">
+                                <img src="img/Image illustrant la réception.jpg" alt="Réception des produits" class="w-full h-40 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Contenu desktop -->
+                        <div class="hidden md:flex md:w-1/2 md:text-right md:pr-8">
+                            <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+                                <h3 class="text-2xl font-bold text-dark mb-4">Recevez vos produits</h3>
+                                <p class="text-gray-600 leading-relaxed">Recevez vos produits directement à votre adresse en Haïti ou récupérez-les dans nos bureaux. Nous vous notifions à chaque étape du processus de livraison.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:flex items-center justify-center z-10">
+                            <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-2xl border-4 border-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:block md:w-1/2 md:pl-8">
+                            <div class="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+                                <img src="img/Image illustrant la réception.jpg" alt="Réception des produits" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Numéro d'étape pour mobile -->
+                         <div class="md:hidden absolute left-6 top-6 w-12 h-12 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-full flex items-center justify-center text-lg font-bold shadow-lg border-4 border-white z-10">5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Sites Partenaires -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Sites partenaires</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Nous pouvons acheter des produits sur la plupart des sites américains, y compris:</p>
+            </div>
+            
+            <!-- Carousel de logos -->
+            <div class="logo-carousel relative max-w-5xl mx-auto overflow-hidden">
+                <div class="logo-slide flex animate-scroll">
+                    <!-- Logos des sites partenaires avec images réelles -->
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/Amazon.png" alt="Amazon" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/eBay.png" alt="eBay" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/Walmart.png" alt="Walmart" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/Best Buy.png" alt="Best Buy" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/Target.png" alt="Target" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/Home Depot.png" alt="Home Depot" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/Nike.png" alt="Nike" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/Apple.png" alt="Apple" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/Temu.png" alt="Temu" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/shein.png" alt="Shein" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/aliexpress.png" alt="Aliexpress" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/alibaba.png" alt="Alibaba" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <!-- Répétition des logos pour un défilement continu -->
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/Amazon.png" alt="Amazon" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition mx-4 min-w-[200px]">
+                        <div class="h-20 flex items-center justify-center">
+                            <img src="img/eBay.png" alt="eBay" class="max-h-16 max-w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <p class="text-gray-600">Vous ne voyez pas votre site préféré? Contactez-nous, nous pouvons probablement vous aider!</p>
+            </div>
+        </div>
+        
+        <!-- Style pour l'animation du carousel -->
+        <style>
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+            
+            .animate-scroll {
+                animation: scroll 30s linear infinite;
+            }
+        </style>
+    </section>
+
+    <!-- Section Tarifs -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Nos Tarifs</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Des frais transparents sans surprises.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-secondary text-white p-6 text-center">
+                    <h3 class="text-2xl font-bold">Service d'Achat Assisté</h3>
+                    <p class="text-lg mt-2">Accédez facilement aux produits américains</p>
+                </div>
+                
+                <div class="p-6">
+                    <div class="flex justify-between items-center border-b border-gray-200 py-4">
+                        <span class="text-gray-700 font-medium">Frais de service</span>
+                        <span class="text-secondary font-bold">0$ frais service</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 py-4">
+                        <span class="text-gray-700 font-medium">Frais d'expédition</span>
+                        <span class="text-secondary font-bold">À partir de $4.5/lb</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 py-4">
+                        <span class="text-gray-700 font-medium">Frais de consolidation</span>
+                        <span class="text-secondary font-bold">$5 par colis supplémentaire</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 py-4">
+                        <span class="text-gray-700 font-medium">Assurance</span>
+                        <span class="text-secondary font-bold">2% de la valeur (optionnel)</span>
+                    </div>
+                    <div class="flex justify-between items-center py-4">
+                        <span class="text-gray-700 font-medium">Livraison à domicile en Haïti</span>
+                        <span class="text-secondary font-bold">Selon la zone</span>
+                    </div>
+                    
+                    <div class="mt-6 text-gray-600 text-sm">
+                        <p>* Les prix peuvent varier en fonction du poids, des dimensions et de la destination exacte.</p>
+                        <p>* Des frais supplémentaires peuvent s'appliquer pour les articles surdimensionnés ou de grande valeur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Formulaire de Demande -->
+    <section id="demande" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Faire une demande d'achat assisté</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Remplissez le formulaire ci-dessous pour nous soumettre votre demande d'achat.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
+                <!-- Messages de notification -->
+                <div id="notification" class="hidden mb-6 p-4 rounded-lg"></div>
+                
+                <form action="process_buy_assistance.php" method="POST" id="buyAssistanceForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="nom" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                            <input type="text" id="nom" name="nom" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="telephone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                            <input type="tel" id="telephone" name="telephone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="ville" class="block text-gray-700 font-medium mb-2">Ville en Haïti</label>
+                            <input type="text" id="ville" name="ville" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="produit1" class="block text-gray-700 font-medium mb-2">Lien du produit 1</label>
+                        <input type="url" id="produit1" name="produit1" placeholder="https://www.exemple.com/produit" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="description1" class="block text-gray-700 font-medium mb-2">Description du produit 1 (taille, couleur, quantité, etc.)</label>
+                        <textarea id="description1" name="description1" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="produit2" class="block text-gray-700 font-medium mb-2">Lien du produit 2 (optionnel)</label>
+                        <input type="url" id="produit2" name="produit2" placeholder="https://www.exemple.com/produit" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="description2" class="block text-gray-700 font-medium mb-2">Description du produit 2 (taille, couleur, quantité, etc.)</label>
+                        <textarea id="description2" name="description2" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="commentaires" class="block text-gray-700 font-medium mb-2">Commentaires ou instructions spéciales</label>
+                        <textarea id="commentaires" name="commentaires" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" name="conditions" class="mr-2 focus:ring-primary h-4 w-4 text-primary" required>
+                            <span class="text-gray-700">J'accepte les <a href="#" class="text-primary hover:underline">conditions générales</a> et la <a href="#" class="text-primary hover:underline">politique de confidentialité</a>.</span>
+                        </label>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="bg-secondary hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300 shadow-lg" id="submitBtn">
+                            <span id="submitText">Envoyer ma demande</span>
+                            <span id="loadingText" class="hidden">
+                                <i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Questions fréquentes</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Tout ce que vous devez savoir sur notre service d'achat assisté.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Question 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Combien de temps faut-il pour recevoir mes produits?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Le délai de livraison dépend du service d'expédition choisi. En général, comptez 7-10 jours ouvrables pour le service standard et 3-5 jours pour le service express, à partir du moment où nous recevons les produits dans notre entrepôt américain.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment puis-je payer pour mes achats?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nous acceptons plusieurs méthodes de paiement: transferts bancaires locaux, paiements mobiles (MonCash), et paiements en espèces dans nos bureaux. Pour les clients réguliers, nous proposons également des options de crédit.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Que se passe-t-il si mon produit arrive endommagé?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nous vérifions soigneusement tous les produits avant expédition. Cependant, si un produit arrive endommagé, veuillez nous contacter dans les 48 heures suivant la réception avec des photos. Si vous avez souscrit à notre assurance, nous procéderons au remboursement ou au remplacement selon notre politique de garantie.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Puis-je suivre ma commande?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Oui, nous fournissons un numéro de suivi pour chaque envoi. Vous recevrez également des notifications par email ou SMS à chaque étape importante du processus: achat, réception dans notre entrepôt, expédition et livraison.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Y a-t-il des produits que vous ne pouvez pas acheter?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Oui, certains produits sont soumis à des restrictions d'importation ou d'expédition: produits inflammables, armes, certains médicaments, produits périssables, etc. Contactez-nous si vous avez des doutes concernant un produit spécifique.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 6 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Comment calculez-vous les frais de service?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="hidden p-4 bg-white">
+                        <p class="text-gray-600">Nos frais de service standard sont de 10% du prix d'achat des produits. Pour les achats de grande valeur (plus de $1000), nous proposons des tarifs dégressifs. Les frais d'expédition sont calculés séparément en fonction du poids et des dimensions des colis.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <p class="text-gray-600">Vous avez d'autres questions? <a href="contact.html" class="text-primary hover:underline font-medium">Contactez-nous</a> ou consultez notre <a href="faq.html" class="text-primary hover:underline font-medium">FAQ complète</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="py-16 bg-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Prêt à commander des produits américains?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Commencez dès aujourd'hui et découvrez la simplicité de notre service d'achat assisté.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#demande" class="bg-white hover:bg-gray-100 text-secondary font-medium py-3 px-8 rounded-lg transition duration-300 shadow-lg">Faire une demande</a>
+                <a href="contact.html" class="bg-primary hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300 shadow-lg">Nous Contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="bg-dark text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- À propos -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">À propos de Smartcore Express</h3>
+                    <p class="text-gray-400 mb-4">Smartcore Express est votre partenaire de confiance pour tous vos besoins de shipping entre les États-Unis et Haïti.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="buy_assitance.html" class="text-gray-400 hover:text-white transition">Achat Assisté</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">À Propos</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="hidden md:block">
+                    <h3 class="text-xl font-bold mb-4">Nos Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Shipping Standard</a></li>
+                        <li><a href="buy_assitance.html" class="text-gray-400 hover:text-white transition">Achat Assisté</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Consolidation de Colis</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Livraison Express</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Assurance Colis</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Devarenne, Trou-du-Nord, Haïti</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+509 40035664</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">info@smartcoreexpress.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Lun-Ven: 8h-21h | Sam: 9h-12h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 Smartcore Express. Tous droits réservés.</p>
+                    <div class="flex space-x-6">
+                        <a href="conditions-utilisation.html" class="text-gray-400 hover:text-white text-sm transition">Conditions d'utilisation</a>
+                        <a href="politique-confidentialite.html" class="text-gray-400 hover:text-white text-sm transition">Politique de confidentialité</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Script pour le formulaire d'achat assisté -->
+    <script>
+        // Fonction pour afficher les notifications
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            notification.className = `mb-6 p-4 rounded-lg ${type === 'success' ? 'bg-green-100 border border-green-400 text-green-700' : 'bg-red-100 border border-red-400 text-red-700'}`;
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'} mr-2"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            notification.classList.remove('hidden');
+            
+            // Faire défiler vers la notification
+            notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Masquer automatiquement après 10 secondes pour les messages de succès
+            if (type === 'success') {
+                setTimeout(() => {
+                    notification.classList.add('hidden');
+                }, 10000);
+            }
+        }
+        
+        // Vérifier les paramètres URL au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            if (urlParams.get('success') === '1') {
+                showNotification('Votre demande d\'achat assisté a été envoyée avec succès! Nous vous contacterons dans les plus brefs délais.', 'success');
+                // Nettoyer l'URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } else if (urlParams.get('error')) {
+                const errorType = urlParams.get('error');
+                let errorMessage = '';
+                
+                if (errorType === 'email') {
+                    errorMessage = 'Erreur lors de l\'envoi de l\'email. Veuillez réessayer ou nous contacter directement.';
+                } else if (errorType === 'validation') {
+                    const msg = urlParams.get('msg');
+                    errorMessage = msg ? decodeURIComponent(msg) : 'Veuillez vérifier les informations saisies.';
+                } else {
+                    errorMessage = 'Une erreur s\'est produite. Veuillez réessayer.';
+                }
+                
+                showNotification(errorMessage, 'error');
+                // Nettoyer l'URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+        
+        // Gérer la soumission du formulaire
+        document.getElementById('buyAssistanceForm').addEventListener('submit', function(e) {
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const loadingText = document.getElementById('loadingText');
+            
+            // Afficher l'état de chargement
+            submitText.classList.add('hidden');
+            loadingText.classList.remove('hidden');
+            submitBtn.disabled = true;
+            
+            // Masquer les notifications précédentes
+            document.getElementById('notification').classList.add('hidden');
+        });
+        
+        // Gérer l'accordéon FAQ
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Fermer tous les autres accordéons
+                document.querySelectorAll('.accordion-button').forEach(otherButton => {
+                    if (otherButton !== this) {
+                        const otherContent = otherButton.nextElementSibling;
+                        const otherIcon = otherButton.querySelector('i');
+                        otherContent.classList.add('hidden');
+                        otherIcon.classList.remove('fa-minus');
+                        otherIcon.classList.add('fa-plus');
+                    }
+                });
+                
+                // Basculer l'accordéon actuel
+                content.classList.toggle('hidden');
+                icon.classList.toggle('fa-plus');
+                icon.classList.toggle('fa-minus');
+            });
+        });
+        
+        // Gérer le menu mobile
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const icon = this.querySelector('i');
+            
+            mobileMenu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    </script>
+</body>
+</html>

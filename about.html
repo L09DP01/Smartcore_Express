@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Smartcore Express</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration Tailwind personnalisée -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0047AB', // Bleu cobalt
+                        secondary: '#FF6B00', // Orange
+                        accent: '#00A86B', // Vert jade
+                        dark: '#1A1A1A',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Polices Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles personnalisés -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="client/logo.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="img/Logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Smartcore Express">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#0047AB">
+    <meta name="msapplication-TileImage" content="img/Logo.png">
+    
+    <script src="pwa-global.js" defer></script>
+</head>
+<body class="font-sans bg-light text-dark">
+    <!-- En-tête / Navigation -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="img/Logo.png" alt="Smartcore Express" class="h-10 w-auto">
+                        <span class="ml-2 text-xl font-bold text-primary">Smartcore Express</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Menu de navigation principal (desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-dark font-medium hover:text-primary transition">Accueil</a>
+                <a href="services.html" class="text-dark font-medium hover:text-primary transition">Services</a>
+                <a href="about.html" class="text-primary font-medium hover:text-secondary transition">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium hover:text-primary transition">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium hover:text-primary transition">Contact</a>
+                <a href="auth/login.php" class="text-dark font-medium hover:text-primary transition" title="Connexion">
+                    <i class="fas fa-user-alt"></i>
+                </a>
+            </div>
+            
+            <!-- Bouton menu mobile -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-dark hover:text-primary">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Menu mobile (caché par défaut) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white pb-4 shadow-lg">
+            <div class="container mx-auto px-4 flex flex-col space-y-3">
+                <a href="index.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Accueil</a>
+                <a href="services.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Services</a>
+                <a href="about.html" class="text-primary font-medium py-2 border-b border-gray-100">À Propos</a>
+                <a href="faq.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">FAQ</a>
+                <a href="contact.html" class="text-dark font-medium py-2 border-b border-gray-100 hover:text-primary">Contact</a>
+                <a href="auth/login.php" class="text-dark font-medium py-2 hover:text-primary flex items-center" title="Connexion">
+                    <i class="fas fa-user-alt mr-2"></i>Connexion
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Espace pour compenser la hauteur du header fixe -->
+    <div class="h-24"></div>
+
+    <!-- Section Hero -->
+    <section class="bg-primary text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">À Propos de Smartcore Express</h1>
+            <p class="text-xl max-w-3xl mx-auto">Découvrez notre histoire, notre mission et les valeurs qui guident notre entreprise.</p>
+        </div>
+    </section>
+
+    <!-- Section Notre Histoire -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold text-dark mb-6">Notre Histoire</h2>
+                    <p class="text-lg text-gray-600 mb-6">Fondée en 2018, Smartcore Express est née d'une vision simple : créer un pont fiable entre les États-Unis et Haïti pour faciliter l'accès aux produits américains pour les Haïtiens.</p>
+                    <p class="text-lg text-gray-600 mb-6">Tout a commencé lorsque notre fondateur, confronté aux difficultés d'expédier des colis à sa famille en Haïti, a décidé de créer un service qui résoudrait ces problèmes une fois pour toutes.</p>
+                    <p class="text-lg text-gray-600">Depuis, nous avons grandi pour devenir l'un des services de shipping et d'achat assisté les plus fiables entre les USA et Haïti, servant des milliers de clients satisfaits chaque année.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="img/Image illustrant l'histoire de l'entreprise.jpg" alt="Histoire de Smartcore Express" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Notre Mission -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Notre Mission</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Chez Smartcore Express, notre mission est de connecter Haïti au marché américain en offrant des services de shipping et d'achat assisté fiables, transparents et abordables.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pilier 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fiabilité</h3>
+                    <p class="text-gray-600">Nous nous engageons à livrer vos colis en toute sécurité et dans les délais promis, en vous tenant informés à chaque étape du processus.</p>
+                </div>
+                
+                <!-- Pilier 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sécurité</h3>
+                    <p class="text-gray-600">La protection de vos colis et de vos informations personnelles est notre priorité absolue. Nous utilisons des systèmes sécurisés à chaque étape.</p>
+                </div>
+                
+                <!-- Pilier 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Accessibilité</h3>
+                    <p class="text-gray-600">Nous rendons les produits américains accessibles à tous les Haïtiens grâce à des tarifs compétitifs et un service client exceptionnel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Nos Valeurs -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 order-2 md:order-1">
+                    <img src="img/Image illustrant les valeurs de l'entreprise.jpg" alt="Valeurs de Smartcore Express" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pl-10 order-1 md:order-2">
+                    <h2 class="text-3xl font-bold text-dark mb-6">Nos Valeurs</h2>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="flex-shrink-0 mr-4 text-primary">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Intégrité</h3>
+                                <p class="text-gray-600">Nous agissons avec honnêteté et transparence dans toutes nos interactions avec nos clients et partenaires.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mr-4 text-primary">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Excellence</h3>
+                                <p class="text-gray-600">Nous visons l'excellence dans tous nos services et cherchons constamment à nous améliorer pour mieux servir nos clients.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mr-4 text-primary">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Innovation</h3>
+                                <p class="text-gray-600">Nous innovons continuellement pour offrir des solutions adaptées aux besoins changeants de nos clients.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mr-4 text-primary">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Engagement communautaire</h3>
+                                <p class="text-gray-600">Nous sommes engagés à contribuer positivement au développement économique d'Haïti et à soutenir les communautés locales.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Section Chiffres Clés -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Smartcore Express en Chiffres</h2>
+                <p class="text-xl max-w-3xl mx-auto">Quelques statistiques qui témoignent de notre croissance et de notre engagement.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Statistique 1 -->
+                <div class="text-center">
+                    <div class="text-5xl font-bold mb-2">
+                        <span class="counter" data-target="500">0</span>+
+                    </div>
+                    <p class="text-xl">Clients Satisfaits</p>
+                </div>
+                
+                <!-- Statistique 2 -->
+                <div class="text-center">
+                    <div class="text-5xl font-bold mb-2">
+                        <span class="counter" data-target="2500">0</span>+
+                    </div>
+                    <p class="text-xl">Colis Livrés</p>
+                </div>
+                
+                <!-- Statistique 3 -->
+                <div class="text-center">
+                    <div class="text-5xl font-bold mb-2">
+                        <span class="counter" data-target="3">0</span>
+                    </div>
+                    <p class="text-xl">Années d'Expérience</p>
+                </div>
+                
+                <!-- Statistique 4 -->
+                <div class="text-center">
+                    <div class="text-5xl font-bold mb-2">
+                        <span class="counter" data-target="10">0</span>+
+                    </div>
+                    <p class="text-xl">Employés Dévoués</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section Nos Bureaux -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Nos Bureaux</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Visitez-nous dans l'un de nos bureaux en Haïti ou aux États-Unis.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Bureau Haïti -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Trou-du-Nord, Haïti</h3>
+                    <p class="text-gray-600 mb-4">Devarenne, Trou-du-Nord, Haïti HT 6110</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary"></i>
+                            <span>+509 1234 5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            <span>haiti@smartcoreexpress.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-primary"></i>
+                            <span>Lun-Ven: 8h-17h | Sam: 9h-13h</span>
+                        </li>
+                    </ul>
+                    <div class="w-full h-64 rounded-lg mt-4 overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.0594048066!2d-72.02343489999999!3d19.6146137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb6cdec8728399f%3A0x4120d71eece28363!2sTrou-du-Nord%2C%20Haiti!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Bureau USA -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Miami, États-Unis</h3>
+                    <p class="text-gray-600 mb-4">8298 NW 68th St, Miami, FL 33166, USA</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary"></i>
+                            <span>+1 305 123 4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            <span>usa@smartcoreexpress.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-primary"></i>
+                            <span>Lun-Ven: 9h-18h | Sam: 10h-14h</span>
+                        </li>
+                    </ul>
+                    <div class="w-full h-64 rounded-lg mt-4 overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114964.38943762391!2d-80.2144!3d25.7617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2sMiami%2C%20FL%2C%20USA!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Prêt à expédier vos colis?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Rejoignez les milliers de clients satisfaits qui font confiance à Smartcore Express pour leurs besoins de shipping entre les USA et Haïti.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="contact.html" class="bg-white hover:bg-gray-100 text-primary font-medium py-3 px-8 rounded-lg transition duration-300 shadow-lg">Nous Contacter</a>
+                <a href="services.html" class="bg-secondary hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300 shadow-lg">Voir Nos Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="bg-dark text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- À propos -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">À propos de Smartcore Express</h3>
+                    <p class="text-gray-400 mb-4">Smartcore Express est votre partenaire de confiance pour tous vos besoins de shipping entre les États-Unis et Haïti.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="buy_assitance.html" class="text-gray-400 hover:text-white transition">Achat Assisté</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">À Propos</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="hidden md:block">
+                    <h3 class="text-xl font-bold mb-4">Nos Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Shipping Standard</a></li>
+                        <li><a href="buy_assitance.html" class="text-gray-400 hover:text-white transition">Achat Assisté</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Consolidation de Colis</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Livraison Express</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Assurance Colis</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Devarenne, Trou-du-Nord, Haïti HT 6110</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+509 40035664</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">info@smartcoreexpress.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Lun-Ven: 8h-21h | Sam: 9h-12h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 Smartcore Express. Tous droits réservés.</p>
+                    <div class="flex space-x-6">
+                        <a href="conditions-utilisation.html" class="text-gray-400 hover:text-white text-sm transition">Conditions d'utilisation</a>
+                        <a href="politique-confidentialite.html" class="text-gray-400 hover:text-white text-sm transition">Politique de confidentialité</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Script pour l'animation des compteurs -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fonction pour animer les compteurs
+            function animateCounters() {
+                const counters = document.querySelectorAll('.counter');
+                const speed = 200; // La vitesse d'animation (plus petit = plus rapide)
+                
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    
+                    const updateCount = () => {
+                        const increment = target / speed;
+                        
+                        if (count < target) {
+                            count += increment;
+                            counter.innerText = Math.floor(count);
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    
+                    updateCount();
+                });
+            }
+            
+            // Lancer l'animation des compteurs immédiatement
+            animateCounters();
+        });
+    </script>
+</body>
+</html>

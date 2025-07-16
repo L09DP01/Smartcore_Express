@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hors ligne - Smartcore Express</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .offline-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .retry-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .retry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 71, 171, 0.3);
+        }
+    </style>
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex items-center justify-center">
+    <div class="max-w-md mx-auto text-center p-8">
+        <!-- Logo/Icon -->
+        <div class="mb-8">
+            <div class="w-24 h-24 mx-auto bg-blue-600 rounded-full flex items-center justify-center offline-animation">
+                <i class="fas fa-wifi text-white text-3xl transform rotate-45"></i>
+            </div>
+        </div>
+        
+        <!-- Title -->
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">
+            Vous êtes hors ligne
+        </h1>
+        
+        <!-- Description -->
+        <p class="text-gray-600 mb-8 leading-relaxed">
+            Il semble que vous n'ayez pas de connexion internet. Vérifiez votre connexion et réessayez.
+        </p>
+        
+        <!-- Offline Features -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+                Fonctionnalités disponibles hors ligne
+            </h3>
+            <ul class="text-left text-gray-600 space-y-2">
+                <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-3"></i>
+                    Consultation des données en cache
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check text-green-500 mr-3"></i>
+                    Navigation dans l'application
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-times text-red-500 mr-3"></i>
+                    Suivi en temps réel des colis
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-times text-red-500 mr-3"></i>
+                    Nouvelles notifications
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Retry Button -->
+        <button onclick="retryConnection()" class="retry-btn bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg inline-flex items-center">
+            <i class="fas fa-sync-alt mr-2"></i>
+            Réessayer
+        </button>
+        
+        <!-- Back to Dashboard -->
+        <div class="mt-6">
+            <a href="dashboard.php" class="text-blue-600 hover:text-blue-800 font-medium">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Retour au tableau de bord
+            </a>
+        </div>
+        
+        <!-- Connection Status -->
+        <div id="connection-status" class="mt-8 p-4 rounded-lg hidden">
+            <div id="online-status" class="text-green-600 hidden">
+                <i class="fas fa-wifi mr-2"></i>
+                Connexion rétablie !
+            </div>
+            <div id="offline-status" class="text-red-600">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                Toujours hors ligne
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Vérifier le statut de connexion
+        function checkConnection() {
+            const statusDiv = document.getElementById('connection-status');
+            const onlineStatus = document.getElementById('online-status');
+            const offlineStatus = document.getElementById('offline-status');
+            
+            statusDiv.classList.remove('hidden');
+            
+            if (navigator.onLine) {
+                onlineStatus.classList.remove('hidden');
+                offlineStatus.classList.add('hidden');
+                statusDiv.className = 'mt-8 p-4 rounded-lg bg-green-100 border border-green-300';
+                
+                // Rediriger vers le dashboard après 2 secondes
+                setTimeout(() => {
+                    window.location.href = 'dashboard.php';
+                }, 2000);
+            } else {
+                onlineStatus.classList.add('hidden');
+                offlineStatus.classList.remove('hidden');
+                statusDiv.className = 'mt-8 p-4 rounded-lg bg-red-100 border border-red-300';
+            }
+        }
+        
+        // Fonction pour réessayer la connexion
+        function retryConnection() {
+            checkConnection();
+            
+            // Si en ligne, recharger la page
+            if (navigator.onLine) {
+                window.location.reload();
+            }
+        }
+        
+        // Écouter les changements de statut de connexion
+        window.addEventListener('online', () => {
+            checkConnection();
+        });
+        
+        window.addEventListener('offline', () => {
+            checkConnection();
+        });
+        
+        // Vérifier la connexion au chargement
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifier périodiquement la connexion
+            setInterval(checkConnection, 5000);
+        });
+    </script>
+</body>
+</html>
